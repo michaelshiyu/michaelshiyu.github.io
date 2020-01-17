@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-**This site is under construction...**
+**\[This site is under construction\]**
 
 * I am a Ph.D. student at the University of Florida under the supervision of [Dr. Jose Principe](https://www.ece.ufl.edu/people/faculty/jose-c-principe/). 
 
@@ -20,4 +20,4 @@ redirect_from:
 
 * I am lucky to have been advised by some truly exceptional researchers during internships including: [Dr. Jinwei Gu](https://www.gujinwei.org/), [Dr. Huaijin (George) Chen](http://hc25.web.rice.edu/). 
 
-* When I have time, I contribute to open-source projects. Some of the projects I contribute to are listed in [Projects](https://michaelshiyu.github.io/projects/). 
+* I contribute to open-source projects. Some of the projects I contribute to are listed in [Projects](https://michaelshiyu.github.io/projects/). 
