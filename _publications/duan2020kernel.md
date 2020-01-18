@@ -5,8 +5,6 @@ permalink: /publication/duan2020kernel
 excerpt: 'TL;DR: TODO'
 date: 2020-01-01
 venue: 'Neural computation'
-paperurl: 'http://michaelshiyu.github.io/files/duan2020kernel.pdf'
-citation: 'Duan, S., Yu, S., Chen, Y., & Principe, J. C. (2020). On Kernel Method–Based Connectionist Models and Supervised Deep Learning Without Backpropagation. Neural computation, 32(1), 97-135.'
 ---
 **TL;DR: TODO** 
 
