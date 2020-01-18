@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+<br/>
+
 Education
 ======
 **University of Florida**, Gainesville, FL, USA
@@ -20,9 +22,11 @@ Education
 **Fudan University**, Shanghai, China
 * B.S. in Electrical and Computer Engineering &nbsp;&nbsp;&nbsp;&nbsp; *Sep. 2012 - Jul. 2016* 
 
+<br/>
+
 Experience
 ======
-**University of Florida**, Gainesville, FL, USA
+**University of Florida**, Gainesville, FL, USA<br/>
 Research Assistant &nbsp;&nbsp;&nbsp;&nbsp; *Aug. 2017 - present*
 
 * Interpretable deep learning
@@ -30,16 +34,18 @@ Research Assistant &nbsp;&nbsp;&nbsp;&nbsp; *Aug. 2017 - present*
 * Weakly-supervised learning
 * Reinforcement learning
 
-**SenseTime Research (Smart Sensing and Perception Team)**, San Jose, CA, USA
+**SenseTime Research (Smart Sensing and Perception Team)**, San Jose, CA, USA<br/>
 Research Intern &nbsp;&nbsp;&nbsp;&nbsp; *May 2019 - Aug. 2019*
 
 * Image and video compression based on deep learning
 * Image and video synthesis from semantics
 
-**Bosch (CR/RTC5-AP)**, Shanghai, China
+**Bosch (CR/RTC5-AP)**, Shanghai, China<br/>
 Research Intern &nbsp;&nbsp;&nbsp;&nbsp; *Jan. 2016 - Jun. 2016*
 
 * Inference on product usage data
+
+<br/>
 
 Publications
 ======
