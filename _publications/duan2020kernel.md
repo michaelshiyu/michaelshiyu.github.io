@@ -4,11 +4,12 @@ collection: publications
 permalink: /publication/duan2020kernel
 excerpt: 'TL;DR: TODO'
 date: 2020-01-01
-venue: 'Neural computation'
+citation: '<b>Shiyu Duan<\b>, Shujian Yu, Yunmei Chen, Jose C. Principe, <i>Neural computation<\i>'
+paperurl: 'http://michaelshiyu.github.io/files/duan2020kernel.pdf'
 ---
 **TL;DR: TODO** 
 
-[Please download paper here](http://michaelshiyu.github.io/files/duan2020kernel.pdf)
+[pdf](http://michaelshiyu.github.io/files/duan2020kernel.pdf)
 
 BibTeX:
 ```angular2
