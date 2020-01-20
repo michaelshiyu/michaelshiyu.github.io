@@ -8,8 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-**\[This site is under construction\]**
-
 * I am a Ph.D. student at the University of Florida under the supervision of [Dr. Jose Principe](https://www.ece.ufl.edu/people/faculty/jose-c-principe/). 
 
 * My research focuses on deep learning theory and computer vision. 
