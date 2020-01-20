@@ -2,14 +2,14 @@
 title: "On Kernel Method-Based Connectionist Models and Supervised Deep Learning Without Backpropagation"
 collection: publications
 permalink: /publication/duan2020kernel
-excerpt: '<b>TL;DR:</b> TODO'
+excerpt: '<b>TL;DR: (1) We proposed a new family of connectionist models powered by kernel machines (think of these models as cousins of deep neural networks); (2) We proposed a greedy, layer-wise training algorithm and proved its optimality in certain settings (it does what backpropagation does and does it as well as backpropagation but in a layer-by-layer fashion). The advantages? Mainly, the architecture can be modularized and is easier to tune since the user now has more information about training quality of the hidden layers and so on.</b>'
 venue: 'Neural Computation'
 date: 2020-01-01
 citation: '<b>Shiyu Duan</b>, Shujian Yu, Yunmei Chen, Jose C. Principe, <i>Neural computation, 2020</i>'
 paperurl: 'http://michaelshiyu.github.io/files/duan2020kernel.pdf'
 code: 'https://github.com/michaelshiyu/kerNET'
 ---
-**TL;DR: TODO** 
+**TL;DR: (1) We proposed a new family of connectionist models powered by kernel machines (think of these models as cousins of deep neural networks); (2) We proposed a greedy, layer-wise training algorithm and proved its optimality in certain settings (it does what backpropagation does and does it as well as backpropagation but in a layer-by-layer fashion). The advantages? Mainly, the architecture can be modularized and is easier to tune since the user now has more information about training quality of the hidden layers and so on.** 
 
 &nbsp;
 
