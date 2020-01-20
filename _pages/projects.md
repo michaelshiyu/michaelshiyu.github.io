@@ -18,7 +18,7 @@ author_profile: true
 
 &nbsp;
 
-[**kerNET**](https://github.com/michaelshiyu/kerNET)**
+[**kerNET**](https://github.com/michaelshiyu/kerNET)
 ======
 
 **What is this:** PyTorch-based high-level API for easy implementations of connectionist models powered by kernel machines (one example is [RBF networks](https://en.wikipedia.org/wiki/Radial_basis_function_network)). 
