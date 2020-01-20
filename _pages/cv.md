@@ -52,3 +52,14 @@ Publications
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
+  
+<br/>
+
+Skills
+======
+* **Deep Learning Frameworks** 
+    * Proficient with [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/)
+    
+<br/>
+
+*Full CV in pdf format can be found [here](http://michaelshiyu.github.io/files/cv.pdf). [TODO]*
