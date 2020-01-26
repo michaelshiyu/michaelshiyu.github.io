@@ -44,7 +44,7 @@ layout: default
 
         {% if page.citation and page.paperurl and page.code %}
         <p>{{ page.citation }} [<a href="{{ page.paperurl }}">pdf</a>][<a href="{{ page.code }}">code</a>]</p>
-        {% if page.citation and page.paperurl %}
+        {% elsif page.citation and page.paperurl %}
           <p>{{ page.citation }} [<a href="{{ page.paperurl }}">pdf</a>]</p>
         {% elsif page.citation %}
           <p>{{ page.citation }} </p>
