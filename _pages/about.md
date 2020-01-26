@@ -14,7 +14,7 @@ redirect_from:
 
     - Right now, I am mainly working on making deep architectures more **transparent** (or interpretable, if you are more familiar with the terminologies within the community) and more **secure** (adversarially robust).
 
-    - I also have experience with both low-level (denoising, superresolution, deblurring, etc.) and high-level (object recognition, detection, segmentation, etc.) **computer vision**, **generative models** (GANs in particular), and **reinforcement learning**. And I am interested in math and statistics in general. 
+    - I also have experience with both low-level (denoising, superresolution, deblurring, etc.) and high-level (object recognition, detection, segmentation, etc.) **computer vision**, **image/video compression**, **generative models** (GANs in particular), and **reinforcement learning**. And I am interested in math and statistics in general. 
 
 * I am lucky to have been advised by some truly exceptional researchers during internships including: [Dr. Jinwei Gu](https://www.gujinwei.org/), [Dr. Huaijin (George) Chen](http://hc25.web.rice.edu/). 
 
