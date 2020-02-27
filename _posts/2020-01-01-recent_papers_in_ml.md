@@ -64,3 +64,43 @@ tags:
 - Somewhat unusual section names: it seems that all sections starting from Sec. 3 are experiments and ablation study. 
 - Extensive ablation study.
 - The 1x, 2x, and 4x denote the width multiplier for the ResNet-50. This is described in the beginning of Sec. 6. 
+
+[AttnGAN: Fine-Grained Text to Image Generation with Attentional Generative Adversarial Networks](https://arxiv.org/abs/1711.10485)
+======
+
+**keywords:** image generation conditioned on text 
+
+**code:** 
+
+**datasets:** CUB, COCO 
+
+**evaluation metric(s):** inception score, R-precision (to quantify how well a generated image matches the given text. Discussed in detail in the beginning of Sec. 4)
+
+**one-sentence summary:** 
+Existing text-to-image translation methods encode all text description into a single feature vector, lacking fine-grained, word-level information. 
+This work encodes each word into a feature vector (in addition to the sentence feature vector) and utilizes attention mechanism to enable the network to generate regions based on word(s) that are most relevant to it. 
+The authors also proposed an attention-based similarity model that quantifies the similarity between the generated image and the given text description using both global (sentence-level) and local (word-level) information.
+
+**details on main method:**
+Fig. 2 and Eq. 1 together gives a nice description of the main architecture. 
+The model is a multi-scale GAN and attention is used in each scale.
+The initial scale has no attention and is conditioned on the full text description.
+Each following scale takes as input the previously generated image and the output from the attention module on the previous image and the word-level features.
+
+The objective function is given in Eq. 3.
+It is a combination of a regular GAN loss (with a twist that the discriminator also takes as input the sentence-level feature vector) and the so-called DAMSM loss.
+This DAMSM loss is discussed in detail in Sec. 3.2.
+The basic idea is that a bi-directional LSTM and a CNN first encode the text and the image, respectively.
+Then based on these encoded vectors, the authors defined a similarity between an image and a text description (Eq. 10).
+This similarity can be defined using encoded sentence or encoded individual words.
+Given a batch of image-description pairs, the authors then defined the probability of a text description being matched with an image via softmax over the similarities (Eq. 11). 
+The DAMSM loss amounts to minimizing the negative log probability of each text description being matched to the correct image, at both sentence-level and word-level. 
+
+**additional comments:** 
+- Results:
+    - The DAMSM loss promotes semantic coherency with the given text (Fig. 3 and Table 2, shown by increased inception score and R-precision when the weight on the DAMSM term was increased). 
+    - Intuitive ablation study results demonstrate clearly how the multi-scale architecture together with the attention mechanism helps learning fine-grained details from word-level information (Fig. 4).
+    - Inception score comparisons against other GANs provided in Table 3, showing significant improvement on both datasets.
+
+
+
