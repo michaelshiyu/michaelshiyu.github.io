@@ -62,4 +62,4 @@ Skills
     
 <br/>
 
-*Full CV in pdf format can be found [here](http://michaelshiyu.github.io/files/cv.pdf). [TODO]*
+*Full CV in pdf format can be found [here](http://michaelshiyu.github.io/files/cv.pdf). [Coming Soon...]*
