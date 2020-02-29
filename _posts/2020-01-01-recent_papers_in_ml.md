@@ -6,7 +6,15 @@ tags:
   - research
 ---
 
+I decided to type up the notes I make when I read papers as a reference for myself when I come back to these papers at some point in the future.
+The papers here are some recent ones in machine learning.
+They don't necessarily have a common topic or anything and I read them simply because I think they are pretty damn cool.
+
+In the following, **one-sentence summary** sometimes means **(I tried to keep the summary short and ideally) one-sentence (but I failed and produced a multi-sentence) summary (instead)**.
+
 <!---
+&nbsp; 
+
 [Template]()
 ======
 
@@ -21,8 +29,9 @@ tags:
 **details on main method:** 
 
 **additional comments:** 
-)
 -->
+
+&nbsp; 
 
 [FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence](https://arxiv.org/abs/2001.07685)
 ======
@@ -41,6 +50,8 @@ tags:
 - Nice literature review. 
 - Very detailed descriptions on the experimental settings. 
 - Extensive ablation study.
+
+&nbsp; 
 
 [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
 ======
@@ -64,6 +75,8 @@ tags:
 - Somewhat unusual section names: it seems that all sections starting from Sec. 3 are experiments and ablation study. 
 - Extensive ablation study.
 - The 1x, 2x, and 4x denote the width multiplier for the ResNet-50. This is described in the beginning of Sec. 6. 
+
+&nbsp; 
 
 [AttnGAN: Fine-Grained Text to Image Generation with Attentional Generative Adversarial Networks](https://arxiv.org/abs/1711.10485)
 ======
@@ -102,5 +115,34 @@ The DAMSM loss amounts to minimizing the negative log probability of each text d
     - Intuitive ablation study results demonstrate clearly how the multi-scale architecture together with the attention mechanism helps learning fine-grained details from word-level information (Fig. 4).
     - Inception score comparisons against other GANs provided in Table 3, showing significant improvement on both datasets.
 
+&nbsp; 
 
+[Subclass Distillation](https://arxiv.org/abs/2002.03936)
+======
 
+**keywords:** distillation (transfer learning)
+
+**code:** 
+
+**datasets:** CIFAR-10, CelebA, Criteo click prediction, MNIST 
+
+**one-sentence summary:** 
+Distillation does not work well in classification with a small number of total classes, this work encourages the teacher to produce a subclass assignment for each example before the actual class assignment. 
+The student now learns to match both the subclass assignment and the class assignment. 
+Since one can choose the number of subclasses arbitrarily, one may set it to be greater than that of the classes such that the student can be trained better with this extra information transferred from the teacher.  
+
+**details on main method:** 
+The method is illustrated in Fig. 2.
+The main modification to the architecture is a substitution of the original logit layer with a subclass logit layer. 
+The size of this layer (and hence the number of imaginary subclasses) can be freely determined.
+The final class prediction is simply obtained by summing over the corresponding subclasses predictions for each class. 
+
+The teacher loss is given in Eq. 8 and is a weighted sum of the usual cross-entropy and the proposed auxiliary loss.
+Specifically, the auxiliary loss defined in Eq. 6 is to encourage the teacher to produce distinct subclass assignments for distinct inputs (even when they are from the same class) and thus reveal more information about its inner workings to the student. 
+The student loss is given in Eq. 4 and is a weighted sum of the usual cross-entropy and a distill loss (Eq. 3) that matches the student's subclass predictions with the teacher's.
+
+**additional comments:** 
+- The method can perform unsupervised subclass classification with only binary supervision and, with the help from the auxiliary loss, surpasses fully-unsupervised state-of-the-art on CIFAR-10 in Sec. 4.1.1 (Table 1).
+    - To obtain subclass assignment, argmax was taken on the subclass activations and the permutation with the highest accuracy was used.
+- The analysis on the gain in the amount of information from using subclass distillation is interesting (the second-to-last paragraph in Sec. 4.1.1). 
+- Main results are in Table 2 (CIFAR-10, subclass structure known) and Table 3 (CelebA, subclass structure unknown).
