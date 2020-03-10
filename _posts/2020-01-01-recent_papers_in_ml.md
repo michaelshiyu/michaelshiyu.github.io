@@ -47,8 +47,18 @@ In the following, **one-sentence summary** sometimes means **(I tried to keep th
 **details on main method:** Is essentially a loss function of two terms: cross-entropy on weakly augmented labeled examples (Eq. 3) and cross-entropy on strongly augmented, unlabeled examples using (only confident enough) model predictions (on weakly augmented versions of these images) as artificial labels (Eq. 4). 
 
 **additional comments:** 
+- Augmentation:
+    - Weak augmentation is flip-and-shift. Discussed in the beginning of Sec. 2.3.
+    - Tested with both RandAugment and CTAugment as strong augmentation. Discussed respectively in the last two paragraphs of Sec. 2.3.
+- The authors emphasized the importance of factors that are usually considered "miscellaneous" and gave detailed descriptions on them. 
+    To facilitate a fair comparison across methods, the authors reimplemented the baselines and used the same network backbone and training protocol for all baselines (mentioned in the beginning of Sec. 4.1).
+    Some that are of particular importance are (mentioned in the second paragraph of Sec. 2.4. Analysis in Sec. 5): 
+    - Regularization. Used weight decay regularization. 
+    - Optimizer. Used SGD with momentum.
+    - Learning rate schedule. Used a cosine decay strategy (Eq. 5).
+    - Exponential moving average on model parameters.
+- Some main hyperparameters are given in the beginning of Sec. 4. A full list of hyperparameters is provided in the supplementary material.
 - Nice literature review. 
-- Very detailed descriptions on the experimental settings. 
 - Extensive ablation study.
 
 &nbsp; 
