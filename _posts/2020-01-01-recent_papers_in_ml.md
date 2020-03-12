@@ -74,9 +74,11 @@ In the following, **one-sentence summary** sometimes means **(I tried to keep th
 
 **one-sentence summary:** Based on contrastive learning, the authors proposed a simple self-supervised representation learning framework and demonstrated an instantiation with an off-the-shelf ResNet-50 backbone that achieved state-of-the-art performance on ImageNet (76.5% top-1 self-supervised, 85.8% top-5 fine-tuned with 1% of the labels). 
 
-**details on main method:** Fig. 2 and Alg. 1 together gives a clear description. The particular contrastive loss used (NT-Xent) is in Eq. 1. Two augmented versions of the same image form a positive pair in the contrastive loss, whereas the negative pairs are simply pairs of augmented versions of distinct images. The contrastive loss is computed after a trainable projection head (discarded after training) that projects the representation into a low-dimensional space. 
+**details on main method:** Fig. 2 and Alg. 1 together gives a clear description. The particular contrastive loss used (NT-Xent) is in Eq. 1. Two augmented versions of the same image form a positive pair in the contrastive loss, whereas the negative pairs are simply pairs of augmented versions of distinct images. The contrastive loss is computed after a trainable projection head (discarded after training) that projects the representation into a lower-dimensional space. 
 
 **additional comments:** 
+- The network backbone is a ResNet-50. 
+    And the activation of the final average pooling layer is used as the representation (mentioned in Sec. 2.1). 
 - Evaluation methods used: 
     - Linear evaluation (train a supervised linear classifier on top of the learned representations). Main results in Table 6;
     - Fine-tuned with few labels (semi-supervised). Main results in Table 7; 
@@ -156,3 +158,33 @@ The student loss is given in Eq. 4 and is a weighted sum of the usual cross-entr
     - To obtain subclass assignment, argmax was taken on the subclass activations and the permutation with the highest accuracy was used.
 - The analysis on the gain in the amount of information from using subclass distillation is interesting (the second-to-last paragraph in Sec. 4.1.1). 
 - Main results are in Table 2 (CIFAR-10, subclass structure known) and Table 3 (CelebA, subclass structure unknown).
+
+&nbsp; 
+
+[Neural Kernels Without Tangents](https://arxiv.org/abs/2003.02237)
+======
+
+**keywords:** kernel method, deep learning theory 
+
+**code:** [available](https://github.com/modestyachts/neural_kernels_code) 
+
+**datasets:** CIFAR-10, UCI, MNIST, CIFAR-100, CIFAR-10.1 
+
+**one-sentence summary:** Equated common operations used to form layers of neural networks to kernels, and studied the correlation between performance of CNNs (consisting of convolution, average pooling, and ReLU layers) and that of the corresponding (compositional) kernels. 
+
+**details on main method:** 
+- Theoretical framework:
+    - Defined a "bag of features" to be simply a set of vectors in a Hilbert space (an example is a set of image patches).
+    - Then defined three elementary mappings on these bags of features: concatenation (concatenating the vectors), downsampling (averaging the vectors), and embedding (a nonlinear mapping on the vectors).
+    - These maps map into new Hilbert spaces, on which kernels can be induced from the inner products associated with the new Hilbert spaces (Sec. 3.1).  
+    - Explicitly characterized kernels corresponding to four neural network operations: convolution, average pooling, ReLU, and an uncommon "normalized Gaussian kernel" (Sec. 3.2). 
+    - The resulting kernels are shown to be expectations of inner products between outputs of random neural networks (Eq. 2).
+
+**additional comments:** 
+- Experimental settings:
+    - Used ZCA whitening instead of mean subtraction plus standard deviation normalization.
+    - The training of the kernel machines was described in the end of Sec. 4.2.
+    
+- Results:
+    - The best CNN achieved 93%/96% accuracy on CIFAR-10 (with only flip augmentation/with additional augmentations including cutout and random crops).
+    - The best kernel machine achieved 90% accuracy on CIFAR-10 (with only flip augmentation).
