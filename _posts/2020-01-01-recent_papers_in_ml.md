@@ -12,6 +12,10 @@ They don't necessarily have a common topic or anything and I read them simply be
 
 In the following, **one-sentence summary** sometimes means **(I tried to keep the summary short and ideally) one-sentence (but I failed and produced a multi-sentence) summary (instead)**.
 
+Some of the papers were pretty new when I read them and the authors might have published newer versions afterwards.
+Therefore, I include a unique version identifier in the title of each paper, indicating the version of the paper to which my comments correspond to.
+The rationale behind not directly making the hyperlink point to a pdf file (which would solve the aforementioned versioning issue) is to allow the readers of this post to be aware of potential newer versions hosted on arXiv or somewhere else as well as supplementary materials that are separate from the paper (e.g., PMLR puts main text and supplementary materials in two separate places). 
+
 <!---
 &nbsp; 
 
@@ -33,7 +37,7 @@ In the following, **one-sentence summary** sometimes means **(I tried to keep th
 
 &nbsp; 
 
-[FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence](https://arxiv.org/abs/2001.07685)
+[FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence (version: arXiv v1)](https://arxiv.org/abs/2001.07685)
 ======
 
 **keywords:** semi-supervised learning, image classification
@@ -63,7 +67,7 @@ In the following, **one-sentence summary** sometimes means **(I tried to keep th
 
 &nbsp; 
 
-[A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
+[A Simple Framework for Contrastive Learning of Visual Representations (version: arXiv v1)](https://arxiv.org/abs/2002.05709)
 ======
 
 **keywords:** self-supervised learning, image classification 
@@ -90,7 +94,7 @@ In the following, **one-sentence summary** sometimes means **(I tried to keep th
 
 &nbsp; 
 
-[AttnGAN: Fine-Grained Text to Image Generation with Attentional Generative Adversarial Networks](https://arxiv.org/abs/1711.10485)
+[AttnGAN: Fine-Grained Text to Image Generation with Attentional Generative Adversarial Networks (version: arXiv v1)](https://arxiv.org/abs/1711.10485)
 ======
 
 **keywords:** image generation conditioned on text 
@@ -129,7 +133,7 @@ The DAMSM loss amounts to minimizing the negative log probability of each text d
 
 &nbsp; 
 
-[Subclass Distillation](https://arxiv.org/abs/2002.03936)
+[Subclass Distillation (version: arXiv v1)](https://arxiv.org/abs/2002.03936)
 ======
 
 **keywords:** distillation (transfer learning)
@@ -161,7 +165,7 @@ The student loss is given in Eq. 4 and is a weighted sum of the usual cross-entr
 
 &nbsp; 
 
-[Neural Kernels Without Tangents](https://arxiv.org/abs/2003.02237)
+[Neural Kernels Without Tangents (version: arXiv v2)](https://arxiv.org/abs/2003.02237)
 ======
 
 **keywords:** kernel method, deep learning theory 
