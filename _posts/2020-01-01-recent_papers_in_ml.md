@@ -14,7 +14,7 @@ In the following, **one-sentence summary** sometimes means **(I tried to keep th
 
 Some of the papers were pretty new when I read them and the authors might have published newer versions afterwards.
 Therefore, I include a unique version identifier in the title of each paper, indicating the version of the paper to which my comments correspond to.
-The rationale behind not directly making the hyperlink point to a pdf file (which would solve the aforementioned versioning issue) is to allow the readers of this post to be aware of potential newer versions hosted on arXiv or somewhere else as well as supplementary materials that are separate from the paper (e.g., PMLR puts main text and supplementary materials in two separate places). 
+The rationale behind not directly making the hyperlink point to a pdf file (which would solve the aforementioned versioning issue) is to allow the readers of this post to be aware of potential newer versions hosted on arXiv or somewhere else as well as other resources that are separate from the main paper (e.g., PMLR and NIPS Proceedings both put main text and supplementary materials in two separate places). 
 
 <!---
 &nbsp; 
@@ -192,3 +192,43 @@ The student loss is given in Eq. 4 and is a weighted sum of the usual cross-entr
 - Results:
     - The best CNN achieved 93%/96% accuracy on CIFAR-10 (with only flip augmentation/with additional augmentations including cutout and random crops).
     - The best kernel machine achieved 90% accuracy on CIFAR-10 (with only flip augmentation).
+    
+&nbsp;
+
+[Deep Neural Networks as Gaussian Processes (version: ICLR 2018)](https://openreview.net/forum?id=B1EA-M-0Z)
+======
+
+**keywords:** kernel method, deep learning theory 
+
+**code:** [available](https://github.com/brain-research/nngp) 
+
+**datasets:** MNIST, CIFAR-10 
+
+**one-sentence summary:** Extended the classic result that equated a one-hidden-layer MLP to a Gaussian process (GP) when the hidden layer width goes to infinity to arbitrary MLPs. 
+And experimentally evaluated the performance of the so-called NNGPs, which are GPs using kernels induced by deep neural networks (NNs).
+
+**details on main method:** 
+- The classic one-hidden-layer result (reviewed in Sec. 2.2):
+    - Consider a one-hidden-layer MLP and assume that the weights and biases of the layers are i.i.d. random variables (r.v.s).
+    - Given the activations of the input layer, one may invoke the CLT and show that each activation in the output layer, being a sum over i.i.d. r.v.s, is itself a normal r.v..
+    - Now, for any activation on the output layer, one may construct a Gaussian process (indexed over the input data) with zero mean (follows by construction of the distributions from which the weights and biases are sampled respectively) and covariance matrix given in Eq. 2 (dependant on the nonlinearity following the input layer). 
+
+- The main theoretical result (Sec. 2.3):
+    - The argument proceeds in an iterative fashion, taking the layer widths to infinity sequentially such that the layers are one by one (from the input layer to the output layer) governed by a GP.
+    - Any single activation in any given layer being a GP (indexed over input data) follows a straightforward application of CLT when the activations of the previous layer are given.
+    - The covariance matrix of this GP depends on the choice of nonlinearity following the previous layer and is given in Eq. 4 and simplified in Eq. 5.
+    - The covariance matrix can be computed analytically for some nonlinearities.
+    In particular, for ReLU, the kernel recovers the classic arccosine kernel. 
+    When analytical computation is not possible, a numerical approach is given in Sec. 2.5.
+
+- Practical implications:
+    - Bayesian training of NNs using GP priors (Sec. 2.4): the predictive distribution for a test input given training data is characterized by a normal r.v. with mean and variance given in Eq. 8 and 9, respectively.
+    - Uncertainty estimation for free (using the variance of the predictive distribution). 
+    
+**additional comments:** 
+- Experimental settings:
+    - The baseline NNs are MLPs with identical width at each hidden layer and were trained with Adam on MSE.
+    The nonlinearities used include ReLU and Tanh.
+    
+- Main results are presented in Table 1. 
+  NNGP performs on par with the somewhat weak MLP baselines with the highest accuracy being 55.66% on CIFAR-10 using 45k training data (53.13% for the corresponding MLP baseline).
