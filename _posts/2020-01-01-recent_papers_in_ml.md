@@ -232,3 +232,38 @@ And experimentally evaluated the performance of the so-called NNGPs, which are G
     
 - Main results are presented in Table 1. 
   NNGP performs on par with the somewhat weak MLP baselines with the highest accuracy being 55.66% on CIFAR-10 using 45k training data (53.13% for the corresponding MLP baseline).
+  
+&nbsp;
+
+[Neural Tangent Kernel: Convergence and Generalization in Neural Networks (version: NeurIPS 2018)](http://papers.nips.cc/paper/8076-neural-tangent-kernel-convergence-and-generalization-in-neural-networks)
+======
+
+**keywords:** kernel method, deep learning theory 
+
+**code:** 
+
+**datasets:** synthetic data, MNIST 
+
+**one-sentence summary:** Related the training dynamics and generalization of MLPs with the so-called neural tangent kernels (NTKs). 
+
+**details on main method:** 
+- A few key constructions/observations: 
+    - Considering the input distribution to be the empirical distribution on a finite dataset, which reduces expectations to sample means (in the end of page 2).
+    - Given a time-dependent function following kernel gradient descent, the evolution of the cost is related to the positive definiteness (defined near the end of page 3) of the kernel (in the beginning of page 4). 
+    This helps preserve convexity of the functional cost.
+    - Sec. 3.1: with linear realization functions, optimizing the cost with gradient descent is equivalent to kernel gradient descent with the tangent kernel.
+    When the number of parameters in the network tends to infinity, this tangent kernel converges to a fixed kernel (using insight from the random Fourier features paper (Eq. 2 in that paper)) so the optimization is essentially kernel gradient descent with respect to a fixed limiting kernel.
+    - Sec. 4: with arbitrary realization functions, the network function evolves along the kernel gradient with respect to the NTK.
+
+- Key results:
+    - Theorem 1 gives an explicit characterization of the limit of the NTK at initialization as the layer widths tend to infinity.
+    - Theorem 2 extends Theorem 1 to any arbitrary time step and presents a differential equation that describes the dynamics of the network function during training in the infinite widths limit.
+    - Sec. 5 provides a concrete example using least-squares regression, in which the functional cost and the trajectory of the network function are explicitly given after solving the above differential equation.
+    In particular, the error vanishes faster along eigenspaces corresponding to larger eigenvalues, justifying early-stopping.
+    - Used synthetic data to verify (1) the convergence of the NTK as layer widths go to infinity (Sec. 6.1) and (2) the network function follows a normal distribution for regression cost (Sec. 6.2).
+    - Used MNIST to verify that in the regression case, the network function converges to the target at exponential rates along principal components (Sec. 6.3).
+
+- The (somewhat nonstandard) MLP parameterization is given in Sec. 2.
+
+**additional comments:** 
+- Viewing the training cost that is usually considered a function with respect to the network parameters as a function of the network function is interesting.
