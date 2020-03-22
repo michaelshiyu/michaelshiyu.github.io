@@ -267,3 +267,37 @@ And experimentally evaluated the performance of the so-called NNGPs, which are G
 
 **additional comments:** 
 - Viewing the training cost that is usually considered a function with respect to the network parameters as a function of the network function is interesting.
+
+&nbsp; 
+
+[On Exact Computation with an Infinitely Wide Neural Net (version: NeurIPS 2019)](https://papers.nips.cc/paper/9025-on-exact-computation-with-an-infinitely-wide-neural-net)
+======
+
+**keywords:** kernel method, deep learning theory 
+
+**code:** [available](https://github.com/ruosongwang/CNTK) 
+
+**datasets:** CIFAR-10 
+
+**one-sentence summary:** 
+Detailed an efficient algorithm for computing convolutional neural tangent kernels (CNTKs) with ReLU activation. 
+In the regression with squared error setting, improved the asymptotic results in the original NTK paper and other related works to non-asymptotic ones. 
+The best CNTK achieved 77% accuracy on CIFAR-10, which is a new state-of-the-art (assuming not considering "methods that tune the kernel using training data or use a neural network to extract features and then applying a kernel method on top of them" (footnote in page 3)).
+
+**details on main method:** 
+- Lemma 3.1 shows that the derivative of the network output w.r.t. time is fully characterized by a time-varying kernel matrix. 
+- Fully-connected networks with ReLU
+    - Theorem 3.1 shows that for fully-connected networks, the earlier kernel matrix, at initialization of the network, converges to the NTK given in Eq. 9 as the layer widths tend to infinite and gives the rate of convergence (a non-asymptotic result).
+    - Theorem 3.2 shows that after infinite training time with gradient descent, the fully-connected neural network's prediction on a normalized test example converges to that of the kernel regression model with NTK with large probability as the layer widths of the former tend to infinite. 
+The speed of convergence is also given (a non-asymptotic result).
+Formulation of the kernel regression model is given in the beginning of page 6.
+        - Interpretation: kernel regression with the NTK kernel, a model that does not require iterative training, shares the same generalization characteristics as a wide fully-connected neural network after infinite training. 
+- CNNs
+    - CNTKs corresponding to a vanilla CNN and a CNN with global average pooling (GAP) were described and recursive formulae that compute them were given.  
+        - The time complexity for CNN with GAP was given in the end of page 7 (super-quadratic in training set size). 
+
+**additional comments:** 
+- Main results are in Table 1.
+- Reformulated many of the NTK paper results without relying on the functional analysis framework therein, which helps understanding things from a new perspective.
+- The classification of related works that connect neural networks and kernel method into the studied networks being weakly-trained or fully-trained is neat.
+- The main conclusion is that infinitely-wide networks are much worse than their finitely-wide counterparts.
