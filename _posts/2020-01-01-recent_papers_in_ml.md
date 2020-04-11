@@ -301,3 +301,43 @@ Formulation of the kernel regression model is given in the beginning of page 6.
 - Reformulated many of the NTK paper results without relying on the functional analysis framework therein, which helps understanding things from a new perspective.
 - The classification of related works that connect neural networks and kernel method into the studied networks being weakly-trained or fully-trained is neat.
 - The main conclusion is that infinitely-wide networks are much worse than their finitely-wide counterparts.
+
+&nbsp; 
+
+[A Theoretical Analysis of Contrastive Unsupervised Representation Learning (version: ICML 2019)](http://proceedings.mlr.press/v97/saunshi19a.html)
+======
+
+**keywords:** unsupervised learning, contrastive learning 
+
+**code:** 
+
+**datasets:** CIFAR-100, Wiki-3029 (language, created for this paper), IMDb 
+
+**one-sentence summary:** 
+Studied the relationship between unsupervised contrastive learning and the downstream supervised task.
+The main results are bounds on the supervised loss of the unsupervised contrastive loss minimizer. 
+
+**details on main method:** 
+- The main construction is presented in Sec. 2. Some key components include:
+    - The joint distribution of a positive pair and the distribution of a negative example are defined in Eq. 1 and 2, resp.
+    Class identities are assumed, but the class labels are integrated out in these definitions, making the set-up essentially unsupervised.
+    For the supervised downstream task, the joint distribution of the example and its label is given in Eq. 3. 
+    - The unsupervised representation learner is trained with the contrastive learning framework and is attached to a linear layer for the supervised task.
+    - Considers the hinge loss and the logistic loss.
+    These loss functions are ingeniously rewritten such that the unsupervised contrastive learning task and the downstream supervised task share the same loss function form. 
+    The loss functions are formally defined in Eq. 4, 5, and 6.
+
+- The main bound using a single negative example is given in Th. 4.5, where the supervised loss of the contrastive loss minimizer is bounded in terms of the unsupervised loss of any function in the function class considered plus what can be interpreted as the expressiveness of this function.
+Under additional assumptions on the bounding function, the right hand side of this bound can be refined to essentially the supervised loss of the bounding function plus its expressiveness. 
+
+- The main bound using multiple negative examples is given in Th. 6.1.
+
+- Proposed a more general contrastive learning method where multiple positive and multiple negative examples are allowed.
+In Prop. 6.2, this learning method is shown to give a tighter bound than the original one.
+
+- Experimentally verified that using larger block sizes improves performance of unsupervised contrastive learning, which is an example of how "fresh insights derived from our framework can lead to improvements upon state-of-the-art models in this active area".
+
+**additional comments:** 
+- The main construction is very interesting in 
+    - how it assumes class identities of data examples (necessary for the downstream task) but "hides away" the labels when dealing with the unsupervised contrastive learning task.
+    - how it uses a single loss function form to encompass both the unsupervised and supervised tasks.
