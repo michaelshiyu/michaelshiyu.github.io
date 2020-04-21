@@ -341,3 +341,54 @@ In Prop. 6.2, this learning method is shown to give a tighter bound than the ori
 - The main construction is very interesting in 
     - how it assumes class identities of data examples (necessary for the downstream task) but "hides away" the labels when dealing with the unsupervised contrastive learning task.
     - how it uses a single loss function form to encompass both the unsupervised and supervised tasks.
+    
+&nbsp; 
+
+[Putting an End to End-to-End: Gradient-Isolated Learning of Representations (version: NeurIPS 2019)](https://papers.nips.cc/paper/8568-putting-an-end-to-end-to-end-gradient-isolated-learning-of-representations)
+======
+
+**keywords:** contrastive learning, modular deep learning 
+
+**code:** 
+
+**datasets:** STL-10 (provides an additional unlabeled trainset), LibriSpeech
+
+**one-sentence summary:**
+An extension of contrastive predictive coding (CPC) to modular training of deep architectures.
+The hidden modules are trained with a variant of the InfoNCE loss (Eq. 1) without labels. 
+
+**details on main method:** 
+- Review CPC in Sec. 2:
+    - The InfoNCE loss (Eq. 1) is an instantiation of the contrastive learning framework on sequential data.
+    - An autoregressive model takes in a sequence of (possibly encoded) examples z_0, ..., z_t, and outputs a single example c_t, which constitutes a positive pair with the k-steps-ahead input z_{t + k}. The negative pairs are c_t and z_i's uniformly sampled from all input examples. 
+    - A classifier and this autoregressive model are jointly trained to classify the positive pair from all pairs.
+    - In the end, the autoregressive model learns to extract features that are consistent over neighboring patches but nonexistent between random patches.
+
+- The main method, dubbed Greedy InfoMax (GIM), is a generalization of CPC and is illustrated in Fig. 1:
+    - Each module is trained to optimize the InfoNCE loss without an autoregressive module.
+    The pairs are simply the module outputs with the positive pair being the module output at step t and at step t + k (Eq. 3 and 4).
+    - The InfoNCE classifiers are discarded afterwards.
+    - To deal with long-term dependency in, e.g., speech recognition, an autoregressive model is added to the InfoNCE loss of some modules (Eq. 6).
+    - Argued that the method can be interpreted as
+        - Maximizing the mutual information between nearby patch representations, and
+        - Maximizing the mutual information between representations in consecutive modules.
+    - For images, to form a sequential input, each image is split into ordered patches (Sec. 4.1).
+    - A linear classifier is trained with softmax + cross-entropy on top of the representations learned by these stacked encoding modules.
+
+- The main advantages:
+    - The ability to leverage unlabeled data.
+    - Lower memory usage. 
+
+- The main vision results are in Table 1.
+The various methods compared therein are described in the "Results" subsection in the beginning of page 6.
+Note that the GIM model in the table had all its three hidden modules trained in sync (end-to-end).
+And training them purely greedily hurt performance (second to last paragraph of page 6).
+
+- The main speech results are in Table 3.
+The various methods compared therein are described in the "Results" subsection of page 7.
+
+- Fig. 4 shows that each module improves upon its predecessors in terms of learning representations suitable for the downstream classification task.
+
+**additional comments:** 
+
+- Missing a justification for the optimality of this learning method.
