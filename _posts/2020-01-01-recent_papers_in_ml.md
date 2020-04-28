@@ -392,3 +392,56 @@ The various methods compared therein are described in the "Results" subsection o
 **additional comments:** 
 
 - Missing a justification for the optimality of this learning method.
+
+&nbsp; 
+
+[Taskonomy: Disentangling Task Transfer Learning (version: CVPR 2018)](http://openaccess.thecvf.com/content_cvpr_2018/html/Zamir_Taskonomy_Disentangling_Task_CVPR_2018_paper.html)
+======
+
+**keywords:** transfer learning 
+
+**code:** [demo available](http://taskonomy.stanford.edu/) 
+
+**datasets:** proposed an image dataset of 4 million indoor scenes that has annotations for every one of the tasks studied on every image 
+
+**one-sentence summary:** 
+Proposed a computational method that discovers task transferability and predicts the optimal transfer policy among a given set of vision (generalizable to other domains) tasks.
+A practical implication is that one can leverage the obtained taxonomic map to reduce the need for labeled data when learning a target task.
+
+**details on main method:** 
+
+- Requires:
+    - A user-specified set of tasks whose underlying structure is of interest.
+    - A dataset "that has annotations for *every task on every image*".  
+- The four main steps (illustrated in Fig. 2):
+    - Train one fully supervised network for each source task.
+    The networks are required to have compatible architectures to make the subsequent transfer possible (this work used autoencoders).
+    - The encoders from the source networks are frozen.
+    On each possible source-task combinations (both first-order, i.e., single source, and higher-order, i.e., multiple sources, are considered), a network head (called a transfer function) is trained to solve the target task.
+    The performance of this new model quantifies the task transferability between the corresponding source(s) and target.
+    The head is kept small and trained with a small amount of labeled data (details are in the end of Sec. 3.2 "Accessibility").
+    The rationale is that if the source(s) are highly transferable for the target, the features extracted by the source network should be *easily* read out by the new head without extensive training or a very expressive head architecture.
+    - Since different target tasks use loss functions that potentially have different scales and induce different learning dynamics, the authors proposed an ordinal approach to normalize the raw task transferability quantified by performance of the new network head.
+    Essentially, instead of comparing raw loss values, the relative transferability between two sources is measured by counting how many times one source is better than the other on the test set.
+    Then for each source, its overall transferability is measured using comparisons against all sources (specifically, this value is obtained by reading out the corresponding component of the principal eigenvector of a tournament ratio matrix). 
+    Stack the transferability vector of each target to form the affinity matrix P.
+    - Given a set of tasks, the corresponding affinity matrix, max transfer order, supervision budget, and relative importance of target tasks, the authors modeled the problem of maximizing joint performance of all tasks (sum of transfer performance values from the affinity matrix weighted by target task importance) as a constrained subgraph selection problems and solved it using boolean integer programming. 
+    The algorithm outputs a binary vector x of length e + v with value 1 indicating that this particular task or transfer is included in the final optimal transfer graph, where e is the total number of tasks, and v being the total number of possible transfers.
+
+- Performance evaluations:
+    - The source networks used were well-trained, achieving comparable performance to state-of-the-arts models. 
+    - Win rate is defined as the proportion of test data on which the learned transfer policy resulted in a model that is better than the baseline.
+    The transfer functions were trained using a small subset of the validation set (1k to 16k images, Sec. 4 "Data Splits") and the transfer policy was compared against two baselines: a network trained from scratch using the same data as the transfer networks' (win rate against this baseline is dubbed "gain"), and a network trained with 120k images (win rate dubbed "quality", a stronger baseline). 
+    - The main result is given in Fig. 9.
+    The transfer policy outperformed the weak baseline (in terms of gain) and matched the strong baseline (quality) most of the times.
+    - On novel target tasks that do not have source networks to be used for the transfer policy, transfer networks were trained with 16k images and the resulting optimal transfer policy has high gain but low quality in most cases (Fig. 10, left).
+    Moreover, using the same amount of labeled data, it usually outperforms training from scratch, self-supervised methods (can be understood as user-specified, fixed transfer), and using fixed ImageNet features (Fig. 10, right). 
+    - The authors tested that the performance improvements in terms of gain and quality are significant (Fig. 11).
+    - The estimated task transferability using the proposed dataset generalizes to some extent to other datasets (Fig. 12).
+    - The estimated task transferability is robust to many design choices (Sec. 5.2).
+
+**additional comments:** 
+
+- Neat literature review.
+
+- Sec. 6 gives a nice discussion on the limitations of this study arising from some of the simplifying assumptions.
