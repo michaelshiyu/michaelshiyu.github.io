@@ -445,3 +445,51 @@ A practical implication is that one can leverage the obtained taxonomic map to r
 - Neat literature review.
 
 - Sec. 6 gives a nice discussion on the limitations of this study arising from some of the simplifying assumptions.
+
+&nbsp; 
+
+[Similarity of Neural Network Representations Revisited (version: ICML 2019)](http://proceedings.mlr.press/v97/kornblith19a.html)
+======
+
+**keywords:** representation learning 
+
+**code:** [available](https://github.com/google-research/google-research/tree/master/representation_similarity) 
+
+**datasets:** CIFAR-10, CIFAR-100 
+
+**one-sentence summary:**
+Studied "the design and analysis of a scalar similarity index" between matrices "that can be used to compare representations within and across neural networks, in order to help visualize and understand the effect of different factors of variation in deep learning". 
+
+**details on main method:** 
+- The similarity index operates on pairs of matrices that share the same number of rows (batch size) but not necessarily columns (layer width) (end of Sec. 1, "Problem Statement").
+
+- Argued that an ideal similarity index should  
+    - *Not* be invariant to invertible linear transformations since
+        - such an index cannot distinguish between representations when layer width exceeds batch size (Theorem 1), and
+        - in practice, neural network training is *not* invariant to arbitrary invertible linear transformations of inputs or activations. 
+    - Be invariant to orthogonal transformations.
+    - Be invariant to isotropic scaling, i.e., scalar multiplication.
+
+- Reviewed several similarity measures and summarized their invariance properties (Table 1).
+
+- On a pair of architecturally identical networks trained with different initializations, centered kernel alignment (CKA) (with both linear and Gaussian kernel) identified representations from architecturally corresponding layers as most similar more successfully than the other similarity measures studied (Fig. 2 & Table 2).
+
+- Based on the previous observation, the authors claimed that CKA is more suitable for measuring representation similarity and proceeded to perform the following exploratory experiments:
+    - CKA was used to determine when the marginal performance improvement in network depth diminishes in a vanilla CNN by measuring if any newly added layer produced representations similar to the previous layers (Fig. 3).
+    In ResNets, CKA revealed no such pathology: the layers consistently produced novel representations. 
+    - CKA was used to measure similarity between layers from architecturally distinct networks (Fig. 5 & 6). 
+    Upper, wider layers tend to produce more similar representations.
+    - CKA was used to show that models trained on different datasets yielded similar representations in upper layers.
+    And these representations differ from those produced by untrained networks. 
+
+**additional comments:** 
+- The main argument on why CKA is preferred over other matrix similarity measures is that it outperformed other measures in the proposed sanity check: a similarity measure should be robust to random network initializations and assign high similarity to architecturally corresponding layers in two identical networks trained from different random initializations. 
+However, it is very difficult, if possible at all, to verify that this intuition itself is true.
+
+- The experiments outlined a series of interesting problems to be studied in deep learning such as "how deep is too deep".
+A good representation similarity measure can be really helpful when it comes to providing quantitative answers to these questions. 
+
+- The visualizations are nice.
+
+- This work (Table 1 in particular) can be really handy for future works in this direction. 
+
