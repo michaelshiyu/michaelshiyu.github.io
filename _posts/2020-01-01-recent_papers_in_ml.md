@@ -525,7 +525,7 @@ The proposed embedding methods were demonstrated to be useful for selecting pre-
     These particularity vectors are trained to predict the performance of a model on a query task given TASK2VEC distance between the task this model was trained on and this query task.
     - This requires an extra training phase that has O(N) time complexity, where N is the number of available experts.
 
-- The authors demonstrated the usefulness of TASK2VEC and MODEL2VEC on a model selection problem, where pre-trained feature extractors were given and were to be selected for target tasks (Sec. 4.2).
+- The authors demonstrated the usefulness of TASK2VEC and MODEL2VEC on a model selection problem, where pre-trained feature extractors were given and were to be selected for target tasks and a linear classifier was trained on each feature extractor to determine the its actual performance (transferability) on target task (Sec. 4.2).
     The models can be selected either based on the source tasks they were trained (using TASK2VEC) or using MODEL2VEC, the latter of which achieved better performance (Table 1).
     The best of the proposed model selection strategies outperformed random selection and always using a fixed feature extractor pre-trained on ImageNet, but still do not always identify the best model (Table 1).
     
