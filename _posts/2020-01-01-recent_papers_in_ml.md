@@ -493,3 +493,46 @@ A good representation similarity measure can be really helpful when it comes to 
 
 - This work (Table 1 in particular) can be really handy for future works in this direction. 
 
+&nbsp; 
+
+[Task2Vec: Task Embedding for Meta-Learning (version: ICCV 2019)](http://openaccess.thecvf.com/content_ICCV_2019/html/Achille_Task2Vec_Task_Embedding_for_Meta-Learning_ICCV_2019_paper.html)
+======
+
+**keywords:** meta learning, task similarity
+
+**code:** 
+
+**datasets:** fine-grained classification tasks including iNaturalist, CUB-200, iMaterialist, and DeepFashion  
+
+**one-sentence summary:** 
+Proposed a method to embed tasks into a vector space such that their similarity can be quantified as distance in that space.
+The proposed embedding methods were demonstrated to be useful for selecting pre-trained models.
+
+**details on main method:** 
+
+- Intuition: Fisher information matrix (FIM) characterizes importance of specific weights to the classification task (beginning of Sec. 3).
+    Therefore, when using a single "probe" network over all tasks of interest, the corresponding FIMs encode information that is relevant for solving each task in a way that can be compared across the tasks (beginning of Sec. 3.1).
+
+- To obtain FIM, the authors used a feature extractor pre-trained on ImageNet and fine-tuned a classifier head on each task.
+    The FIM is computed for the feature extractor parameters (beginning of Sec. 3.1).
+    Two additional approximation steps were taken to ensure (1) computational overhead is manageable (2) the resulting task representation has fixed size (governed by the number of filters of the probe network) regardless of the task.
+    - Refined estimation via using the solution to the L functional ("Robust Fisher computation").
+
+- Defined the (a)symmetric TASK2VEC distance through the FIM (Sec. 3.3) to quantify task distance.
+
+- MODEL2VEC aims at embedding specific models into the task space such that models closer to a task are likely to perform well in that task.
+    The embedding is a sum of the task vector of the task this model was trained on and a learnable vector representing the particularities of this model.
+    These particularity vectors are trained to predict the performance of a model on a query task given TASK2VEC distance between the task this model was trained on and this query task.
+    - This requires an extra training phase that has O(N) time complexity, where N is the number of available experts.
+
+- The authors demonstrated the usefulness of TASK2VEC and MODEL2VEC on a model selection problem, where pre-trained feature extractors were given and were to be selected for target tasks (Sec. 4.2).
+    The models can be selected either based on the source tasks they were trained (using TASK2VEC) or using MODEL2VEC, the latter of which achieved better performance (Table 1).
+    The best of the proposed model selection strategies outperformed random selection and always using a fixed feature extractor pre-trained on ImageNet, but still do not always identify the best model (Table 1).
+    
+- The proposed methods were shown to work fine in the data-scarce regime (Fig. 4) and with different network backbones (Table 2).
+
+**additional comments:** 
+
+- Pixel-labeling and regression tasks are discussed in the supplementary materials.
+
+- +: large-scale experimental evaluation (1400+ total tasks).
