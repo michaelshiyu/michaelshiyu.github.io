@@ -576,3 +576,49 @@ The method does not depend on particular solutions trained to solve the tasks, c
 - CE is actually only a *part* of a *bound* on a *surrogate* of the true transferability. 
     The other part of the bound involves actually a trained model.
     Only using CE as estimations for transferability bypasses the need for pre-trained models but may make the estimations less accurate. 
+    
+&nbsp; 
+
+[LEEP: A New Measure to Evaluate Transferability of Learned Representations (version: arXiv v1)](https://arxiv.org/abs/2002.12462)
+======
+
+**keywords:** task similarity, transfer learning 
+
+**code:** 
+
+**datasets:** CIFAR-100, FashionMNIST 
+
+**one-sentence summary:**
+An extension of "Transferability and Hardness of Supervised Classification Tasks" that removes the assumption that source and target tasks share the same input data by introducing a source network into the construction and let the source task be fully represented by this source network.
+The proposed transferability measure, LEEP, is essentially the performance of the a hybrid network defined via attaching a dummy head on top of the source network that converts its output categorical distribution over the source task labels to a distribution over the target task labels.
+
+**details on main method:** 
+- Represents the source task with a pre-trained model and the target task with a labeled dataset.
+
+- True transferability is defined as how well the pre-trained source model can solve the target task.
+    Considered two transferred networks, whose test performance will quantify true transferability (Sec. 5.1): (1) a network head is trained on the frozen feature extractor from the source model to solve the target task (called the head re-training method), and (2) the new network head and the source feature extractor are fine-tuned together (the fine-tuning method). 
+    
+- The main transferability measure, LEEP, is defined as follows.
+    - Let the target label be y and source label be z, and let the trained source model be f.
+    f(x) is an approximation of the categorical distribution p(z|x).
+    - A classifier for the target task should approximate p(y|x), this equals p(y, z|x) = p(y|z, x)p(z|x) with z integrated/summed out.
+    - If we estimate the distribution of p(y|z, x) using the empirical distribution p'(y|z, x) (Step 2 in Sec. 2), we can obtain a target task classifier by multiplying p'(y|z, x) and f(x) and then summing out z.
+    - LEEP is defined as the training set log-likelihood of this classifier (called expected empirical predictor (EEP)) on the target task.
+
+- The main result is that LEEP lower bounds the optimal *training* log-likelihood obtained via training a classifier head on top of the frozen feature extractor from the source network f used in the definition of LEEP (Property 1).
+
+- LEEP is related to the negative conditional entropy (NCE) as transferability measure proposed by the same authors in Property 2.
+    This result requires that NCE uses the predicted labels from the source network as the true labels for the source task since in LEEP's set-up, the source task is completely represented by the source network and there are no true labels to use.
+    
+- Demonstrated that LEEP works well in small-data (Sec. 5.2) and imbalanced-class (Sec. 5.3) set-ups, with a meta-transfer learning method CNAPs (Sec. 5.4), with different source networks (Sec. 5.7), and can outperform H scores and NCE (Sec. 5.6).
+
+- In the small-data regime, transferred models with higher LEEP scores sometimes converge faster and outperform models trained from scratch using target task data (Sec. 5.5). 
+
+
+- Notable details in the experimental set-up:
+    - The target tasks were obtained as random subsets of CIFAR-100 classes (Sec. 5.1).
+    - Performance of the transferability measure is quantified via the Pearson correlation coefficient between the measure and the true transferability (same as in the NCE work).
+    - The true transferability is estimated using the F1 score in the imbalanced classes set-up instead of raw accuracy of transferred models.
+
+**additional comments:** 
+- Table 1 summarizes most of the results and is really neat.
