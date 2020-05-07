@@ -498,7 +498,7 @@ A good representation similarity measure can be really helpful when it comes to 
 [Task2Vec: Task Embedding for Meta-Learning (version: ICCV 2019)](http://openaccess.thecvf.com/content_ICCV_2019/html/Achille_Task2Vec_Task_Embedding_for_Meta-Learning_ICCV_2019_paper.html)
 ======
 
-**keywords:** meta learning, task similarity
+**keywords:** meta learning, task similarity, transfer learning
 
 **code:** 
 
@@ -536,3 +536,43 @@ The proposed embedding methods were demonstrated to be useful for selecting pre-
 - Pixel-labeling and regression tasks are discussed in the supplementary materials.
 
 - +: large-scale experimental evaluation (1400+ total tasks).
+
+&nbsp; 
+
+[Transferability and Hardness of Supervised Classification Tasks (version: ICCV 2019)](http://openaccess.thecvf.com/content_ICCV_2019/html/Tran_Transferability_and_Hardness_of_Supervised_Classification_Tasks_ICCV_2019_paper.html)
+======
+
+**keywords:** task similarity, transfer learning 
+
+**code:** 
+
+**datasets:** CelebA, Animals with Attributes 2, CUB-200  
+
+**one-sentence summary:**
+Proposed a task similarity estimation method for classification using the conditional entropy (CE) between two sequences of training labels defining the tasks (on the same input examples). 
+The method does not depend on particular solutions trained to solve the tasks, contrasting existing works such as Taskonomy and Task2Vec.
+
+**details on main method:** 
+- The main factor differentiating this method from successful existing ones such as Taskonomy and Task2Vec is that this one does not extract task-characterizing information from a proxy trained model --- this is done via using the labeled data only and therefore may avoid any bias/particularity of proxy models. 
+
+- The theoretical results rely on the assumption that (1) a task is characterized by a labeled dataset and the cross-entropy loss (2) the task pair of interest share the same input examples (3) there is an underlying classification model that assumes a two-module representation. 
+
+- Defined true transferability between a source and a target task to be the best test accuracy from fine-tuning a classifier head on top of a frozen network body that minimizes the (training) cross-entropy of the source task (Def. 1).
+    - Proposed to use the training log-likelihood of this hybrid network on the target task as a surrogate measure for true transferability if the network did not overfit (Eq. 5).
+    - The main result (Th. 1) is actually on this surrogate instead of the true transferability.
+    
+- CE is defined in Def. 2 using the empirical distribution of the training labels.
+    Conceptually, it estimates the randomness of one label given the other (or the amount of information we still do not know about one label given the other), assuming we treat the labels as random variables.
+    
+- The main result (Th. 1) lower bounds a surrogate of true transferability by the source task performance of the optimal source model minus the CE between the two label sequences.
+
+- Transferability is estimated using the CE between the tasks. 
+    Hardness is estimated using the transferability with respect to a trivial task.
+    Specifically, hardness of a given task, defined as the negative log-likelihood of the optimal model (Eq. 13) is upper bounded by the CE between its label sequence with respect to a constant label sequence (Eq. 14). 
+
+**additional comments:** 
+- Results are intuitive and neatly presented. 
+
+- CE is actually only a *part* of a *bound* on a *surrogate* of the true transferability. 
+    The other part of the bound involves actually a trained model.
+    Only using CE as estimations for transferability bypasses the need for pre-trained models but may make the estimations less accurate. 
