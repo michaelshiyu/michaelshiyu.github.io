@@ -16,6 +16,24 @@ Some of the papers were pretty new when I read them and the authors might have p
 Therefore, I include a unique version identifier in the title of each paper, indicating the version of the paper to which my comments correspond to.
 The rationale behind not directly making the hyperlink point to a pdf file (which would solve the aforementioned versioning issue) is to allow the readers of this post to be aware of potential newer versions hosted on arXiv or somewhere else as well as other resources that are separate from the main paper (e.g., PMLR and NIPS Proceedings both put main text and supplementary materials in two separate places). 
 
+A running list of papers reviewed on this page:
+
+- FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence (version: arXiv v1) 
+- A Simple Framework for Contrastive Learning of Visual Representations (version: arXiv v1)
+- AttnGAN: Fine-Grained Text to Image Generation with Attentional Generative Adversarial Networks (version: arXiv v1)
+- Subclass Distillation (version: arXiv v1)
+- Neural Kernels Without Tangents (version: arXiv v2)
+- Deep Neural Networks as Gaussian Processes (version: ICLR 2018)
+- Neural Tangent Kernel: Convergence and Generalization in Neural Networks (version: NeurIPS 2018)
+- On Exact Computation with an Infinitely Wide Neural Net (version: NeurIPS 2019)
+- A Theoretical Analysis of Contrastive Unsupervised Representation Learning (version: ICML 2019)
+- Putting an End to End-to-End: Gradient-Isolated Learning of Representations (version: NeurIPS 2019)
+- Taskonomy: Disentangling Task Transfer Learning (version: CVPR 2018)
+- Similarity of Neural Network Representations Revisited (version: ICML 2019)
+- Task2Vec: Task Embedding for Meta-Learning (version: ICCV 2019)
+- Transferability and Hardness of Supervised Classification Tasks (version: ICCV 2019)
+- LEEP: A New Measure to Evaluate Transferability of Learned Representations (version: arXiv v1)
+
 <!---
 &nbsp; 
 
@@ -30,7 +48,7 @@ The rationale behind not directly making the hyperlink point to a pdf file (whic
 
 **one-sentence summary:** 
 
-**details on main method:** 
+**more details:** 
 
 **additional comments:** 
 -->
@@ -48,7 +66,7 @@ The rationale behind not directly making the hyperlink point to a pdf file (whic
 
 **one-sentence summary:** Combines two existing semi-supervised learning techniques, consistency regularization and pseudo-labeling, in a simplistic way but achieves state-of-the-art results (in particular, 94.93%/88.61% on CIFAR-10 with 250/40 labels). 
 
-**details on main method:** Is essentially a loss function of two terms: cross-entropy on weakly augmented labeled examples (Eq. 3) and cross-entropy on strongly augmented, unlabeled examples using (only confident enough) model predictions (on weakly augmented versions of these images) as artificial labels (Eq. 4). 
+**more details:** Is essentially a loss function of two terms: cross-entropy on weakly augmented labeled examples (Eq. 3) and cross-entropy on strongly augmented, unlabeled examples using (only confident enough) model predictions (on weakly augmented versions of these images) as artificial labels (Eq. 4). 
 
 **additional comments:** 
 - Augmentation:
@@ -78,7 +96,7 @@ The rationale behind not directly making the hyperlink point to a pdf file (whic
 
 **one-sentence summary:** Based on contrastive learning, the authors proposed a simple self-supervised representation learning framework and demonstrated an instantiation with an off-the-shelf ResNet-50 backbone that achieved state-of-the-art performance on ImageNet (76.5% top-1 self-supervised, 85.8% top-5 fine-tuned with 1% of the labels). 
 
-**details on main method:** Fig. 2 and Alg. 1 together gives a clear description. The particular contrastive loss used (NT-Xent) is in Eq. 1. Two augmented versions of the same image form a positive pair in the contrastive loss, whereas the negative pairs are simply pairs of augmented versions of distinct images. The contrastive loss is computed after a trainable projection head (discarded after training) that projects the representation into a lower-dimensional space. 
+**more details:** Fig. 2 and Alg. 1 together gives a clear description. The particular contrastive loss used (NT-Xent) is in Eq. 1. Two augmented versions of the same image form a positive pair in the contrastive loss, whereas the negative pairs are simply pairs of augmented versions of distinct images. The contrastive loss is computed after a trainable projection head (discarded after training) that projects the representation into a lower-dimensional space. 
 
 **additional comments:** 
 - The network backbone is a ResNet-50. 
@@ -110,7 +128,7 @@ Existing text-to-image translation methods encode all text description into a si
 This work encodes each word into a feature vector (in addition to the sentence feature vector) and utilizes attention mechanism to enable the network to generate regions based on word(s) that are most relevant to it. 
 The authors also proposed an attention-based similarity model that quantifies the similarity between the generated image and the given text description using both global (sentence-level) and local (word-level) information.
 
-**details on main method:**
+**more details:**
 Fig. 2 and Eq. 1 together gives a nice description of the main architecture. 
 The model is a multi-scale GAN and attention is used in each scale.
 The initial scale has no attention and is conditioned on the full text description.
@@ -147,7 +165,7 @@ Distillation does not work well in classification with a small number of total c
 The student now learns to match both the subclass assignment and the class assignment. 
 Since one can choose the number of subclasses arbitrarily, one may set it to be greater than that of the classes such that the student can be trained better with this extra information transferred from the teacher.  
 
-**details on main method:** 
+**more details:** 
 The method is illustrated in Fig. 2.
 The main modification to the architecture is a substitution of the original logit layer with a subclass logit layer. 
 The size of this layer (and hence the number of imaginary subclasses) can be freely determined.
@@ -176,7 +194,7 @@ The student loss is given in Eq. 4 and is a weighted sum of the usual cross-entr
 
 **one-sentence summary:** Equated common operations used to form layers of neural networks to kernels, and studied the correlation between performance of CNNs (consisting of convolution, average pooling, and ReLU layers) and that of the corresponding (compositional) kernels. 
 
-**details on main method:** 
+**more details:** 
 - Theoretical framework:
     - Defined a "bag of features" to be simply a set of vectors in a Hilbert space (an example is a set of image patches).
     - Then defined three elementary mappings on these bags of features: concatenation (concatenating the vectors), downsampling (averaging the vectors), and embedding (a nonlinear mapping on the vectors).
@@ -207,7 +225,7 @@ The student loss is given in Eq. 4 and is a weighted sum of the usual cross-entr
 **one-sentence summary:** Extended the classic result that equated a one-hidden-layer MLP to a Gaussian process (GP) when the hidden layer width goes to infinity to arbitrary MLPs. 
 And experimentally evaluated the performance of the so-called NNGPs, which are GPs using kernels induced by deep neural networks (NNs).
 
-**details on main method:** 
+**more details:** 
 - The classic one-hidden-layer result (reviewed in Sec. 2.2):
     - Consider a one-hidden-layer MLP and assume that the weights and biases of the layers are i.i.d. random variables (r.v.s).
     - Given the activations of the input layer, one may invoke the CLT and show that each activation in the output layer, being a sum over i.i.d. r.v.s, is itself a normal r.v..
@@ -246,7 +264,7 @@ And experimentally evaluated the performance of the so-called NNGPs, which are G
 
 **one-sentence summary:** Related the training dynamics and generalization of MLPs with the so-called neural tangent kernels (NTKs). 
 
-**details on main method:** 
+**more details:** 
 - A few key constructions/observations: 
     - Considering the input distribution to be the empirical distribution on a finite dataset, which reduces expectations to sample means (in the end of page 2).
     - Given a time-dependent function following kernel gradient descent, the evolution of the cost is related to the positive definiteness (defined near the end of page 3) of the kernel (in the beginning of page 4). 
@@ -284,7 +302,7 @@ Detailed an efficient algorithm for computing convolutional neural tangent kerne
 In the regression with squared error setting, improved the asymptotic results in the original NTK paper and other related works to non-asymptotic ones. 
 The best CNTK achieved 77% accuracy on CIFAR-10, which is a new state-of-the-art (assuming not considering "methods that tune the kernel using training data or use a neural network to extract features and then applying a kernel method on top of them" (footnote in page 3)).
 
-**details on main method:** 
+**more details:** 
 - Lemma 3.1 shows that the derivative of the network output w.r.t. time is fully characterized by a time-varying kernel matrix. 
 - Fully-connected networks with ReLU
     - Theorem 3.1 shows that for fully-connected networks, the earlier kernel matrix, at initialization of the network, converges to the NTK given in Eq. 9 as the layer widths tend to infinite and gives the rate of convergence (a non-asymptotic result).
@@ -317,7 +335,7 @@ Formulation of the kernel regression model is given in the beginning of page 6.
 Studied the relationship between unsupervised contrastive learning and the downstream supervised task.
 The main results are bounds on the supervised loss of the unsupervised contrastive loss minimizer. 
 
-**details on main method:** 
+**more details:** 
 - The main construction is presented in Sec. 2. Some key components include:
     - The joint distribution of a positive pair and the distribution of a negative example are defined in Eq. 1 and 2, resp.
     Class identities are assumed, but the class labels are integrated out in these definitions, making the set-up essentially unsupervised.
@@ -357,7 +375,7 @@ In Prop. 6.2, this learning method is shown to give a tighter bound than the ori
 An extension of contrastive predictive coding (CPC) to modular training of deep architectures.
 The hidden modules are trained with a variant of the InfoNCE loss (Eq. 1) without labels. 
 
-**details on main method:** 
+**more details:** 
 - Review CPC in Sec. 2:
     - The InfoNCE loss (Eq. 1) is an instantiation of the contrastive learning framework on sequential data.
     - An autoregressive model takes in a sequence of (possibly encoded) examples z_0, ..., z_t, and outputs a single example c_t, which constitutes a positive pair with the k-steps-ahead input z_{t + k}. The negative pairs are c_t and z_i's uniformly sampled from all input examples. 
@@ -408,7 +426,7 @@ The various methods compared therein are described in the "Results" subsection o
 Proposed a computational method that discovers task transferability and predicts the optimal transfer policy among a given set of vision (generalizable to other domains) tasks.
 A practical implication is that one can leverage the obtained taxonomic map to reduce the need for labeled data when learning a target task.
 
-**details on main method:** 
+**more details:** 
 
 - Requires:
     - A user-specified set of tasks whose underlying structure is of interest.
@@ -460,7 +478,7 @@ A practical implication is that one can leverage the obtained taxonomic map to r
 **one-sentence summary:**
 Studied "the design and analysis of a scalar similarity index" between matrices "that can be used to compare representations within and across neural networks, in order to help visualize and understand the effect of different factors of variation in deep learning". 
 
-**details on main method:** 
+**more details:** 
 - The similarity index operates on pairs of matrices that share the same number of rows (batch size) but not necessarily columns (layer width) (end of Sec. 1, "Problem Statement").
 
 - Argued that an ideal similarity index should  
@@ -508,7 +526,7 @@ A good representation similarity measure can be really helpful when it comes to 
 Proposed a method to embed tasks into a vector space such that their similarity can be quantified as distance in that space.
 The proposed embedding methods were demonstrated to be useful for selecting pre-trained models.
 
-**details on main method:** 
+**more details:** 
 
 - Intuition: Fisher information matrix (FIM) characterizes importance of specific weights to the classification task (beginning of Sec. 3).
     Therefore, when using a single "probe" network over all tasks of interest, the corresponding FIMs encode information that is relevant for solving each task in a way that can be compared across the tasks (beginning of Sec. 3.1).
@@ -552,7 +570,7 @@ The proposed embedding methods were demonstrated to be useful for selecting pre-
 Proposed a task similarity estimation method for classification using the conditional entropy (CE) between two sequences of training labels defining the tasks (on the same input examples). 
 The method does not depend on particular solutions trained to solve the tasks, contrasting existing works such as Taskonomy and Task2Vec.
 
-**details on main method:** 
+**more details:** 
 - The main factor differentiating this method from successful existing ones such as Taskonomy and Task2Vec is that this one does not extract task-characterizing information from a proxy trained model --- this is done via using the labeled data only and therefore may avoid any bias/particularity of proxy models. 
 
 - The theoretical results rely on the assumption that (1) a task is characterized by a labeled dataset and the cross-entropy loss (2) the task pair of interest share the same input examples (3) there is an underlying classification model that assumes a two-module representation. 
@@ -592,7 +610,7 @@ The method does not depend on particular solutions trained to solve the tasks, c
 An extension of "Transferability and Hardness of Supervised Classification Tasks" that removes the assumption that source and target tasks share the same input data by introducing a source network into the construction and let the source task be fully represented by this source network.
 The proposed transferability measure, LEEP, is essentially the performance of the a hybrid network defined via attaching a dummy head on top of the source network that converts its output categorical distribution over the source task labels to a distribution over the target task labels.
 
-**details on main method:** 
+**more details:** 
 - Represents the source task with a pre-trained model and the target task with a labeled dataset.
 
 - True transferability is defined as how well the pre-trained source model can solve the target task.
