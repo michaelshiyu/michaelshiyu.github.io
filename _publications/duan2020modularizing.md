@@ -32,4 +32,5 @@ Author = {Shiyu Duan and Shujian Yu and Jose Principe},
 Title = {Modularizing Deep Learning via Pairwise Learning With Kernels},
 Year = {2020},
 Eprint = {arXiv:2005.05541},
-}```
+}
+```
