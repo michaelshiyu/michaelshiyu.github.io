@@ -5,7 +5,7 @@ permalink: /publication/duan2020modularizing
 excerpt: '<b>TL;DR: Using a simple trick, we reveal the kernel machines hidden inside your favorite neural networks. Based on this observation, we propose a provably optimal modular training framework for neural networks in classification, making possible fully modular deep learning workflows. Our training method does not need between-module propagation and relies almost completely on weak pairwise labels yet still matches end-to-end backpropagation in accuracy. Finally, we demonstrate that a modular workflow naturally provides simple but reliable solutions to long-standing problems in important domains such as transfer learning.</b>'
 venue: 'Preprint'
 date: 2020-05-10
-citation: '<b>Shiyu Duan</b>, Shujian Yu, Jose C. Principe, <i>preprint</i>'
+citation: '<b>Shiyu Duan</b>, Shujian Yu, Jose C. Principe, <i>preprint, 2020</i>'
 paperurl: 'https://arxiv.org/pdf/2005.05541.pdf'
 code: 'https://github.com/michaelshiyu/kerNET'
 ---
