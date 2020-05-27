@@ -12,9 +12,9 @@ redirect_from:
 
 * My research focuses on deep learning theory and computer vision. 
 
-    - Right now, I am mainly working on making deep architectures more **transparent** (or interpretable, if you are more familiar with the terminologies within the community) and more **secure** (adversarially robust).
+    - I work on making deep architectures more **modular** (think the kind of modularization in object-oriented programming), more **label efficient** (un/semi-supervised learning), more **transparent** (or interpretable, if you are more familiar with the terminologies within the community), and more **secure** (adversarially robust).
 
-    - I also have experience with both low-level (denoising, superresolution, deblurring, etc.) and high-level (object recognition, detection, segmentation, etc.) **computer vision**, **image/video compression**, **generative models** (GANs in particular), and **reinforcement learning**. And I am interested in math and statistics in general. 
+    - I also work on both low-level (super-resolution, deblurring, denoising, etc.) and high-level (object recognition, detection, segmentation, etc.) **computer vision**, **image/video compression**, **generative models** (GANs in particular), and **reinforcement learning**. And I am interested in math and statistics in general. 
 
 * I am lucky to have been advised by some truly exceptional researchers during internships including: [Dr. Jinwei Gu](https://www.gujinwei.org/), [Dr. Huaijin (George) Chen](http://hc25.web.rice.edu/). 
 
