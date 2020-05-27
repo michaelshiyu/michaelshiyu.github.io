@@ -29,9 +29,11 @@ Experience
 **University of Florida**, Gainesville, FL, USA<br/>
 Research Assistant &nbsp;&nbsp;&nbsp;&nbsp; *Aug. 2017 - present*
 
+* Modular deep learning
+* Transfer learning
+* Weakly-supervised learning
 * Interpretable deep learning
 * Adversarial examples
-* Weakly-supervised learning
 * Reinforcement learning
 
 **SenseTime Research (Smart Sensing and Perception Team)**, San Jose, CA, USA<br/>

@@ -12,7 +12,7 @@ redirect_from:
 
 * My research focuses on deep learning theory and computer vision. 
 
-    - I work on making deep architectures more **modular** (think the kind of modularization in object-oriented programming), more **label efficient** (un/semi-supervised learning), more **transparent** (or interpretable, if you are more familiar with the terminologies within the community), and more **secure** (adversarially robust).
+    - I work on making deep architectures more **modular** (think the kind of modularization in object-oriented programming), more **label efficient** (un/semi-supervised learning, transfer learning), more **transparent** (or interpretable, if you are more familiar with the terminologies within the community), and more **secure** (adversarially robust).
 
     - I also work on both low-level (super-resolution, deblurring, denoising, etc.) and high-level (object recognition, detection, segmentation, etc.) **computer vision**, **image/video compression**, **generative models** (GANs in particular), and **reinforcement learning**. And I am interested in math and statistics in general. 
 
