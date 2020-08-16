@@ -39,7 +39,7 @@ Research Assistant &nbsp;&nbsp;&nbsp;&nbsp; *Aug. 2017 - present*
 **Apple**, Cupertino, CA, USA<br/>
 Intern &nbsp;&nbsp;&nbsp;&nbsp; *May 2020 - Aug. 2020*
 
-* Image/video quality enhancement with machine learning 
+* Image/video processing with machine learning 
 
 **SenseTime Research (Smart Sensing and Perception Team)**, San Jose, CA, USA<br/>
 Research Intern &nbsp;&nbsp;&nbsp;&nbsp; *May 2019 - Aug. 2019*
