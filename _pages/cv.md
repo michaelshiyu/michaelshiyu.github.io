@@ -14,10 +14,10 @@ redirect_from:
 Education
 ======
 **University of Florida**, Gainesville, FL, USA
-* Ph.D. in Electrical and Computer Engineering &nbsp;&nbsp;&nbsp;&nbsp; *Aug. 2017 - Dec. 2020* (expected) 
+* Ph.D. in Electrical and Computer Engineering &nbsp;&nbsp;&nbsp;&nbsp; *Aug. 2017 - Dec. 2020* 
     * Advisor: Dr. Jose Principe
-* M.S. in Mathematics &nbsp;&nbsp;&nbsp;&nbsp; *Jan. 2018 - Dec. 2020* (expected)
-* M.S. in Statistics &nbsp;&nbsp;&nbsp;&nbsp; *Jan. 2018 - Dec. 2020* (expected)
+    * Minor in Mathematics
+* M.S. in Statistics &nbsp;&nbsp;&nbsp;&nbsp; *Jan. 2018 - Dec. 2020* 
     
 **Fudan University**, Shanghai, China
 * B.S. in Electrical and Computer Engineering &nbsp;&nbsp;&nbsp;&nbsp; *Sep. 2012 - Jul. 2016* 
@@ -26,6 +26,12 @@ Education
 
 Experience
 ======
+
+**Apple**, Cupertino, CA, USA<br/>
+Machine Learning Engineer &nbsp;&nbsp;&nbsp;&nbsp; *Jan. 2021 - Present*
+
+* Image/video processing with machine learning 
+
 **University of Florida**, Gainesville, FL, USA<br/>
 Research Assistant &nbsp;&nbsp;&nbsp;&nbsp; *Aug. 2017 - present*
 
@@ -41,13 +47,13 @@ Intern &nbsp;&nbsp;&nbsp;&nbsp; *May 2020 - Aug. 2020*
 
 * Image/video processing with machine learning 
 
-**SenseTime Research (Smart Sensing and Perception Team)**, San Jose, CA, USA<br/>
+**SenseTime Research**, San Jose, CA, USA<br/>
 Research Intern &nbsp;&nbsp;&nbsp;&nbsp; *May 2019 - Aug. 2019*
 
 * Image and video compression based on deep learning
 * Image and video synthesis from semantics
 
-**Bosch (CR/RTC5-AP)**, Shanghai, China<br/>
+**Bosch**, Shanghai, China<br/>
 Research Intern &nbsp;&nbsp;&nbsp;&nbsp; *Jan. 2016 - Jun. 2016*
 
 * Inference on product usage data
@@ -68,5 +74,3 @@ Skills
     * Proficient with [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/)
     
 <br/>
-
-*Full CV in pdf format can be found [here](http://michaelshiyu.github.io/files/cv.pdf). [Coming Soon...]*
