@@ -4,7 +4,7 @@ collection: publications
 permalink: /publication/duan2021training
 excerpt: '<b>TL;DR: We review popular provably optimal methods for training deep architectures without end-to-end backpropagation.</b>'
 venue: 'Preprint'
-date: 2020-01-23
+date: 2021-01-23
 citation: '<b>Shiyu Duan</b>, Shujian Yu, Jose C. Principe, <i>preprint, 2021</i>'
 paperurl: 'https://arxiv.org/abs/2101.03419'
 ---
