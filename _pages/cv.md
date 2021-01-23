@@ -67,10 +67,3 @@ Publications
   {% endfor %}</ul>
   
 <br/>
-
-Skills
-======
-* **Deep Learning Frameworks** 
-    * Proficient with [PyTorch](https://pytorch.org/) and [TensorFlow](https://www.tensorflow.org/)
-    
-<br/>
